@@ -102,7 +102,9 @@ export const ThemeProvider: React.FC<ThemeProviderProps> = ({ children }) => {
     if (typeof window !== 'undefined') {
       const savedSettings = localStorage.getItem('geocrypt_theme_settings');
       if (savedSettings) {
-        return { ...getDefaultThemeSettings(), ...JSON.parse(savedSettings) };
+        const parsed = JSON.parse(savedSettings);
+        // Override with light mode as default
+        return { ...getDefaultThemeSettings(), ...parsed, mode: 'light' };
       }
     }
     return getDefaultThemeSettings();

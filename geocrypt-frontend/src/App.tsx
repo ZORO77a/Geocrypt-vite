@@ -1,6 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom'
 import { AuthProvider } from './contexts/AuthContext'
+import { ThemeProvider } from './contexts/ThemeContext'
 import { ToastContainer } from 'react-toastify'
 import ProtectedRoute from './components/common/ProtectedRoute'
 
@@ -29,19 +30,20 @@ import MainLayout from './components/common/MainLayout'
 const App: React.FC = () => {
   return (
     <Router>
-      <AuthProvider>
-        <ToastContainer
-          position="top-right"
-          autoClose={3000}
-          hideProgressBar={false}
-          newestOnTop
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="colored"
-        />
+      <ThemeProvider>
+        <AuthProvider>
+          <ToastContainer
+            position="top-right"
+            autoClose={3000}
+            hideProgressBar={false}
+            newestOnTop
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="colored"
+          />
         
         <Routes>
           {/* Public Routes */}
@@ -154,7 +156,8 @@ const App: React.FC = () => {
             </div>
           } />
         </Routes>
-      </AuthProvider>
+        </AuthProvider>
+      </ThemeProvider>
     </Router>
   )
 }
