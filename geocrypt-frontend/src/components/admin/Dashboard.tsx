@@ -260,8 +260,8 @@ const AdminDashboard: React.FC = () => {
               color: 'red',
               change: 'AI detected',
             },
-          ].map((stat, index) => (
-            <Grid item xs={12} sm={6} md={2.4} key={index}>
+            ].map((stat, index) => (
+            <Grid item xs={12} sm={6} md={2} key={index}>
               <Card className="hover:shadow-xl transition-all duration-300 hover:-translate-y-1 border border-gray-200">
                 <CardContent className="p-4">
                   <Box className="flex items-center justify-between mb-3">
